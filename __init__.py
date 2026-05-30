@@ -1,23 +1,32 @@
-"""Utilities for asyncio-friendly file handling."""
+from aiogram.dispatcher.flags import FlagGenerator
 
-from . import tempfile
-from .threadpool import (
-    open,
-    stderr,
-    stderr_bytes,
-    stdin,
-    stdin_bytes,
-    stdout,
-    stdout_bytes,
+from . import enums, methods, types
+from .__meta__ import __api_version__, __version__
+from .client import session
+from .client.bot import Bot
+from .dispatcher.dispatcher import Dispatcher
+from .dispatcher.middlewares.base import BaseMiddleware
+from .dispatcher.router import Router
+from .utils.magic_filter import MagicFilter
+from .utils.text_decorations import html_decoration as html
+from .utils.text_decorations import markdown_decoration as md
+
+F = MagicFilter()
+flags = FlagGenerator()
+
+__all__ = (
+    "BaseMiddleware",
+    "Bot",
+    "Dispatcher",
+    "F",
+    "Router",
+    "__api_version__",
+    "__version__",
+    "enums",
+    "flags",
+    "html",
+    "md",
+    "methods",
+    "session",
+    "types",
 )
-
-__all__ = [
-    "open",
-    "tempfile",
-    "stdin",
-    "stdout",
-    "stderr",
-    "stdin_bytes",
-    "stdout_bytes",
-    "stderr_bytes",
-]
